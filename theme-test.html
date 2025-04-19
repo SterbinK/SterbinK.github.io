@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Toggle Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a2e;
+        }
+        
+        .dark-theme {
+            --bg-color: #0f0e17;
+            --text-color: #fffffe;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+        
+        button {
+            background: #f0f0f0;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .dark-theme button {
+            background: #333;
+            color: #fff;
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+        }
+        
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            background: rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn" aria-label="Toggle dark/light mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+    
+    <h1>Theme Toggle Test</h1>
+    <p>Click the button in the top right to toggle between light and dark themes.</p>
+    
+    <div class="status" id="status">Current theme: Light</div>
+    
+    <script>
+        // Simple theme toggle script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get elements
+            const themeToggleBtn = document.getElementById('theme-toggle-btn');
+            const themeIcon = themeToggleBtn.querySelector('i');
+            const statusEl = document.getElementById('status');
+            
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            
+            // If we have a saved theme, apply it
+            if (savedTheme === 'dark-theme') {
+                document.body.classList.remove('light-theme');
+                document.body.classList.add('dark-theme');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                statusEl.textContent = 'Current theme: Dark';
+            }
+            
+            // Add click event to theme toggle button
+            themeToggleBtn.addEventListener('click', function() {
+                console.log('Theme toggle clicked');
+                
+                // Check current theme
+                const isDark = document.body.classList.contains('dark-theme');
+                
+                if (isDark) {
+                    // Switch to light theme
+                    document.body.classList.remove('dark-theme');
+                    document.body.classList.add('light-theme');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                    localStorage.setItem('theme', 'light-theme');
+                    statusEl.textContent = 'Current theme: Light';
+                    console.log('Switched to light theme');
+                } else {
+                    // Switch to dark theme
+                    document.body.classList.remove('light-theme');
+                    document.body.classList.add('dark-theme');
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                    localStorage.setItem('theme', 'dark-theme');
+                    statusEl.textContent = 'Current theme: Dark';
+                    console.log('Switched to dark theme');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

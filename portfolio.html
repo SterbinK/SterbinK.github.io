@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sterbin | Java Developer & Backend Specialist</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-theme">
+    <!-- Theme Toggle with inline JavaScript -->
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn" type="button" aria-label="Toggle dark/light mode" onclick="toggleTheme()">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+    
+    <script>
+        // Inline theme toggle function
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.querySelector('#theme-toggle-btn i');
+            
+            console.log('Toggle theme function called');
+            
+            if (body.classList.contains('light-theme')) {
+                // Switch to dark theme
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                icon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+                console.log('Switched to dark theme');
+            } else {
+                // Switch to light theme
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                icon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+                console.log('Switched to light theme');
+            }
+        }
+        
+        // Apply saved theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            const icon = document.querySelector('#theme-toggle-btn i');
+            
+            if (savedTheme === 'dark') {
+                document.body.classList.remove('light-theme');
+                document.body.classList.add('dark-theme');
+                icon.className = 'fas fa-sun';
+                console.log('Applied dark theme from localStorage');
+            }
+        });
+    </script>
+
+    <!-- Header/Navigation -->
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="#">Sterbin</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Hi, I'm Sterbin – <span class="highlight">Specializing in Java & Backend Development</span></h1>
+                <p class="hero-subtitle"></p>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-shape"></div>
+                <div class="hero-dots"></div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="var(--bg-color)" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="image-container">
+                        <div class="name-display">
+                            <h2>Sterbin</h2>
+                        </div>
+                        <div class="experience-badge">
+                            <span class="years">10+</span>
+                            <span class="text">Months<br>Experience</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Java Developer with a passion for building scalable backend solutions</h3>
+                    <div class="bio-box">
+                        <p>I'm a Computer Science and Engineering graduate from Anna University, Nagercoil (2021), and I hold an MBA in Logistics Management from Alagappa University. With over 10 months of experience in Java development, I specialize in building robust enterprise applications using Spring Boot and microservices architecture.</p>
+                    </div>
+                    <div class="skills-container">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-java"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Java Development</h4>
+                                <p>Core Java, Spring Boot, JPA</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Microservices</h4>
+                                <p>API Design, Service Architecture</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Database</h4>
+                                <p>MySQL, MongoDB, PostgreSQL</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-code-branch"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4>DevOps</h4>
+                                <p>Git, Docker, CI/CD</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Projects Worked On</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-content">
+                        <div class="project-tag">Enterprise Solution</div>
+                        <h3 class="project-title">Moon Bakes</h3>
+                        <p class="project-description">An order management and inventory tracking application designed for bakeries to streamline operations and manage customer orders in real-time.</p>
+                        <div class="project-tech">
+                            <span>Java</span>
+                            <span>Spring Boot</span>
+                            <span>MySQL</span>
+                        </div>
+                        <button class="project-details-btn">View Details</button>
+                    </div>
+                    <div class="project-image">
+                        <div class="image-container">
+                            <div class="image-overlay"></div>
+                            <i class="project-icon fas fa-cookie"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-content">
+                        <div class="project-tag">Automation Tool</div>
+                        <h3 class="project-title">RA Tool</h3>
+                        <p class="project-description">A reporting automation platform that simplifies the process of generating, scheduling, and distributing reports across organizations.</p>
+                        <div class="project-tech">
+                            <span>Java</span>
+                            <span>Spring Boot</span>
+                            <span>React</span>
+                        </div>
+                        <button class="project-details-btn">View Details</button>
+                    </div>
+                    <div class="project-image">
+                        <div class="image-container">
+                            <div class="image-overlay"></div>
+                            <i class="project-icon fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-content">
+                        <div class="project-tag">IoT Solution</div>
+                        <h3 class="project-title">Chest Cooler</h3>
+                        <p class="project-description">A smart cooling system that monitors and maintains optimal temperature for medical supplies and perishable items with real-time alerts and analytics.</p>
+                        <div class="project-tech">
+                            <span>Java</span>
+                            <span>Spring Boot</span>
+                            <span>IoT</span>
+                            <span>Sensors</span>
+                        </div>
+                        <button class="project-details-btn">View Details</button>
+                    </div>
+                    <div class="project-image">
+                        <div class="image-container">
+                            <div class="image-overlay"></div>
+                            <i class="project-icon fas fa-snowflake"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-content">
+                        <div class="project-tag">Educational Platform</div>
+                        <h3 class="project-title">Student Result Management System</h3>
+                        <p class="project-description">A comprehensive system for students to check their academic results, track performance over time, and access course-specific feedback.</p>
+                        <div class="project-tech">
+                            <span>Java</span>
+                            <span>Spring Boot</span>
+                            <span>MySQL</span>
+                            <span>Thymeleaf</span>
+                        </div>
+                        <button class="project-details-btn">View Details</button>
+                    </div>
+                    <div class="project-image">
+                        <div class="image-container">
+                            <div class="image-overlay"></div>
+                            <i class="project-icon fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Information</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content-centered">
+                <div class="contact-info">
+                    <h3>Connect With Me</h3>
+                    <p>Feel free to reach out through any of the following channels:</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="text">
+                                <h4>Email</h4>
+                                <p>sterbinjoseph8508@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="text">
+                                <h4>Phone</h4>
+                                <p>+91 6382865739</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="text">
+                                <h4>Location</h4>
+                                <p>Kanniyakumari, Tamil Nadu</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#">Sterbin</a>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2023 Sterbin. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-container">
+            <button id="modal-close" class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-content">
+                <h2 id="modal-title" class="modal-title"></h2>
+                <p id="modal-description" class="modal-description"></p>
+                <div class="modal-section">
+                    <h3>Technologies Used</h3>
+                    <div id="modal-tech-stack" class="tech-stack"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main portfolio script -->
+    <script src="portfolio.js"></script>
+</body>
+</html>
